@@ -1,0 +1,24 @@
+{% extends 'course_app/layout.html' %}
+{% block title %}{{block.super}} | Add {% endblock%}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h1 class="text-center">Add Course</h1>
+        <form action="{% url 'courses:add_course' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" cols="30" rows="10"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

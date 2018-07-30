@@ -1,0 +1,36 @@
+{% extends 'course_app/layout.html' %}
+{% block title %}{{block.super}} | Subjects {% endblock%}
+{% block body %}
+
+<div class="row">
+    <div class="col-lg-6 offset-3">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags == "error" %} class="bg-danger text-white" 
+                    {% elif message.tags == "success" %} class="bg-success text-white"
+                    {% endif %}>{{message}}</li><br>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h1 class="text-center">{{course.name}}</h1>
+        <p class="text-center">{{course.description}}</p>
+    </div>
+    <div class="col-md-6">
+        {% if subjects %}
+        {% for sub in subjects %}
+            <div class="subject text-center">
+                <h3>{{sub.title}}</h3>
+                <p>{{sub.description}}</p>
+            </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'course_app/css/app.css' %}">
+<title>{% block title %}Django{% endblock %}</title>
+</head>
+<body>
+<nav class="navbar bg-dark navbar-dark">
+    <span class="h1 text-white"><a href="{% url 'courses:home' %}"><i class="fa fa-home"></i></a></span>
+    <ul class="nav">
+        <li class="nav-item"><a href="{% url 'courses:home' %}" class="nav-link text-white">Courses</a></li>
+        <li class="nav-item"><a href="{% url 'courses:add_course_page' %}" class="nav-link text-white"><i class="fa fa-plus"></i></a></li>
+    </ul>
+</nav>
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
